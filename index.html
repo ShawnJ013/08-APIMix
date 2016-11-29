@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="random-memes">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FactoMeme's</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower" rel="stylesheet">
+</head>
+
+<body ng-controller="MemeController as meme" style="background-color: yellow;">
+    <div class="container">
+        <div class="well container" style="margin-top: 20px;">
+            <h1>Random Meme Generator</h1>
+            <h4>Warning: This can get ridiculous!</h4>
+        </div>
+        <div>
+            <div class="col-xs-6">
+            	<!--Get random quote button-->
+                <button ng-click="meme.generateRandomFact()" type="button" class="btn btn-primary btn-block">Generate Text</button>
+                <p>{{meme.response}}</p>
+
+                <!--Get random image button-->
+                <button ng-click="meme.getRandomImage()" type="button" class="btn btn-success btn-block">Get Image</button>
+                <img ng-src="{{meme.randomImage.url}}" alt="">{{meme.response.url}}</img>
+
+                <!--Button to combine random quote and random meme photo to display in panel-body-->
+               
+            </div>
+            <div class="col-xs-6 panel panel-default">
+                <div id="panelHead" class="panel-heading">Here's your meme!</div>
+                <img ng-src="{{meme.completeMemeUrl}}" class="panel-body">{{meme.completeUrl}}</img>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="app/search/app.module.js"></script>
+    <script src="app/search/meme.controller.js"></script>
+    <script src="app/core/randomfacts.factory.js"></script>
+    <script src="app/core/meme.factory.js"></script>
+</body>
+
+</html>
